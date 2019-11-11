@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoaddataProvider } from '../../providers/loaddata/loaddata';
-import { RoomDetailPage } from '../room-detail/room-detail';
+import RoomDetailPage from '../room-detail/room-detail';
 
 /**
  * Generated class for the DormPage page.
@@ -18,7 +18,7 @@ import { RoomDetailPage } from '../room-detail/room-detail';
 export class DormPage {
   rentedroom: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public porm: LoaddataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public dorm: LoaddataProvider) {
     this.loaddata();
   }
 
@@ -27,7 +27,7 @@ export class DormPage {
   }
 
   loaddata(){
-    this.porm.getdorm().subscribe(porms=>{
+    this.dorm.getdorm().subscribe(porms=>{
       this.rentedroom=porms;
     });
   }
@@ -35,4 +35,16 @@ export class DormPage {
   getdetail(room){
     this.navCtrl.push(RoomDetailPage,room);
   }
+
+  getItems(ev:any) {
+    let val = ev.target.value;
+
+    if (val != 0) {
+      this.dorm.searchrooms(val).subscribe(rooms => {
+        this.rentedroom = rooms;
+      });
+    }else {
+      this.loaddata();
+  }
+}
 }

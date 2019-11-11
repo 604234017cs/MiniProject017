@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { Http } from '@angular/http';
-import 'rxjs/operator/map';
+import 'rxjs/add/operator/map';
 
 /**
  * Generated class for the LoginPage page.
@@ -43,7 +43,9 @@ export class LoginPage {
                             pass:this.logindata.password,
       });
 
-      this.http.post(url,dataPost).subscribe(data =>{
+      this.http.post(url,dataPost)
+      .map(res=>res.json())
+      .subscribe(data =>{
 
       });
 

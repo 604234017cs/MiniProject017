@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoaddataProvider } from '../../providers/loaddata/loaddata';
-import { RoomDetailPage } from '../room-detail/room-detail';
+import RoomDetailPage from '../room-detail/room-detail';
+
 
 /**
  * Generated class for the CondominiumPage page.
@@ -37,12 +38,12 @@ export class CondominiumPage {
     this.navCtrl.push(RoomDetailPage,room);
   }
 
-  getItems(ev: any) {
-    //const val = ev.target.value;
+  getItems(ev:any) {
     let val = ev.target.value;
+
     if (val != 0) {
-      this.condo.searchnamroom(val).subscribe(rentedroom => {
-        this.rentedroom = rentedroom['results'];
+      this.condo.searchrooms(val).subscribe(rooms => {
+        this.rentedroom = rooms;
       });
     }else {
       this.loaddata();

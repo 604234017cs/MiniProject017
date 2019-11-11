@@ -14,10 +14,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-room-detail',
   templateUrl: 'room-detail.html',
 })
-export class RoomDetailPage {
+export default class RoomDetailPage {
 
   roomdata:any=[];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  detail: any;
+  rentedroom: any;
+  socialSharing: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,) {
   }
 
   ionViewDidLoad() {
@@ -25,6 +28,16 @@ export class RoomDetailPage {
     this.roomdata = this.navParams.data;
     console.log(this.roomdata);
   }
+
+  shareFacebook(){
+    this.socialSharing.shareViaFacebook(this.detail.overview) 
+    .then(() =>{
+    console.log("Message sent");
+    this.rentedroom = this.navParams.data;
+    }).catch((error) =>{
+    console.log("Fail posting");
+    })
+    }
  
 
 }

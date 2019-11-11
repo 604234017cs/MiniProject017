@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TypeRoomPage } from '../pages/type-room/type-room';
 import { PriceRoomPage } from '../pages/price-room/price-room';
+import { InsertDormPage } from '../pages/insert-dorm/insert-dorm';
+import { LogoutPage } from '../pages/logout/logout';
 
 
 
@@ -24,14 +26,37 @@ export class MyApp {
 
     this.pages = [
     
-      { title: 'Home', component: HomePage},
-      { title: 'ลงชื่อเข้าใช้', component: LoginPage},
-      {title: 'ประเภทห้องเช่า', component: TypeRoomPage},
-      {title: 'เปรียบเทียบราคาห้อง', component: PriceRoomPage},
+      { title: 'Home', component: HomePage },
+      { title: 'ลงชื่อเข้าใช้', component: LoginPage },
+      { title: 'ประเภทห้องเช่า', component: TypeRoomPage },
+      { title: 'เปรียบเทียบราคาห้อง', component: PriceRoomPage },
       
 
     ];
+    
+    // event.subscribe('username:Login',() =>{
+    //   this.pages = [
+    //     { title: 'ประเภทห้องเช่า',component: TypeRoomPage },
+    //     { title: 'เปรียบเทียบราคาห้อง', component: PriceRoomPage },
+    //     { title: 'เพิ่มห้องเช่า', component: InsertDormPage},
+    //     { title: 'ออกจากระบบ', component: LogoutPage},
+
+    //   ];
+    // });
+
+    // event.subscribe('username:Logout',() =>{
+    //   this.pages = [
+    //     { title: 'ประเภทห้องเช่า',component: TypeRoomPage },
+    //     { title: 'เปรียบเทียบราคาห้อง', component: PriceRoomPage },
+    //     { title: 'ลงชื่อเข้าใช้', component: LoginPage },
+
+    //   ];
+    // });
+
+
     }
+
+
     
     initializeApp() {
       this.platform.ready().then(() => {

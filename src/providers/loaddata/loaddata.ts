@@ -40,6 +40,10 @@ export class LoaddataProvider {
       return this.http.get(url);
     }
 
+    searchrooms(query){
+      let url = 'http://localhost/todoslim3/public/search/'+query;
+      return this.http.get(url);
+    }
     
 
 }
