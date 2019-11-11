@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http';
+import { Http } from '@angular/http';
+import 'rxjs/operator/map';
 
 /**
  * Generated class for the LoginPage page.
@@ -14,22 +17,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  logindata:any = {};
 
-  loginResult;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(public navCtrl: NavController, public http:Http, public HttpClientModule:HttpClientModule) {
+    this.logindata.username = "";
+    this.logindata.password = "";
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
-  signIn(_username, _password) {
-    alert('Hello'+_username +_password);
-    if (_password == '1234') {
-      this.loginResult = "Pass";
-      this.navCtrl.push("PhoneBookPage");
-    } else {
-      this.loginResult = "Failed";
+  
+  
+  
+  SingIn(){
+    if(this.logindata.username != ""&& this.logindata.password != ""){
+      console.log("user:",this.logindata.username);
+      console.log("pass:",this.logindata.password);
+
+      let url : string = "http://localhost/rented/login.php";
+      let dataPost = JSON.stringify({
+                            user:this.logindata.username,
+                            pass:this.logindata.password,
+      });
+
+      this.http.post(url,dataPost).subscribe(data =>{
+
+      });
+
+    }else{
+      console.log("Enter Password");
     }
   }
+
+  SingUp(){
+    this.navCtrl.push("SingUpPage");
+  }
 }
+
