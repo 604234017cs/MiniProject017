@@ -7,12 +7,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { PriceRoomPage } from '../pages/price-room/price-room';
 import { TypeRoomPage } from '../pages/type-room/type-room';
 import { LoaddataProvider } from '../providers/loaddata/loaddata';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import RoomDetailPage from '../pages/room-detail/room-detail';
+import { VsroomPage } from '../pages/vsroom/vsroom';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import RoomDetailPage from '../pages/room-detail/room-detail';
     HomePage,
     LoginPage,
   TypeRoomPage,
-  PriceRoomPage,
+  VsroomPage,
    RoomDetailPage,
   
  
@@ -39,7 +39,7 @@ import RoomDetailPage from '../pages/room-detail/room-detail';
     HomePage,
     LoginPage,
     TypeRoomPage,
-    PriceRoomPage,
+    VsroomPage,
     RoomDetailPage,
     
 

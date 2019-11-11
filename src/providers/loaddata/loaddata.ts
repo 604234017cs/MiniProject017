@@ -45,5 +45,13 @@ export class LoaddataProvider {
       return this.http.get(url);
     }
     
+   loadroom(){
+     let url = 'http://localhost/todoslim3/public/index.php/room/';
+     return this.http.get(url);
+   }
 
+   showroom(name_rentedroom){
+    let url = 'http://localhost/todoslim3/public/index.php/showroom/'+name_rentedroom;
+    return this.http.get(url);
+  }
 }

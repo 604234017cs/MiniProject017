@@ -6,9 +6,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TypeRoomPage } from '../pages/type-room/type-room';
-import { PriceRoomPage } from '../pages/price-room/price-room';
+
 import { InsertDormPage } from '../pages/insert-dorm/insert-dorm';
 import { LogoutPage } from '../pages/logout/logout';
+import { VsroomPage } from '../pages/vsroom/vsroom';
 
 
 
@@ -29,7 +30,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'ลงชื่อเข้าใช้', component: LoginPage },
       { title: 'ประเภทห้องเช่า', component: TypeRoomPage },
-      { title: 'เปรียบเทียบราคาห้อง', component: PriceRoomPage },
+      { title: 'เปรียบเทียบราคาห้อง', component: VsroomPage},
       
 
     ];
